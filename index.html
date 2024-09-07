@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anubhav npm Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            border: 1px solid #e1e1e1;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        ol {
+            text-align: left;
+            display: inline-block;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        code {
+            background-color: #f7f7f7;
+            padding: 4px 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63d53;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            text-align: left;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        pre code {
+            display: block;
+            white-space: pre-wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Anubhav npm Package Page</h1>
+        <p>This is a simple HTML page containing info about npm packages.</p>
+        <ol>
+            <li><code>npm init</code> - Add all your code. <code>index.js</code> file will contain the code.</li>
+
+            <pre>
+    // Function to check if a number is prime
+    function isPrime(number) {
+       return true;
+    }
+    // Export the isPrime function
+    module.exports = isPrime;
+            </pre>
+
+            <li><code>npm link</code> - When the package is created, it will create a local link to install those npm files from the local.</li>
+
+            <li>Test the code: <code>npm i package-name(check-if-prime)</code> as specified in the package.json file</li>
+
+            <pre><code>const a = require('check-if-prime');</code></pre>
+            <pre><code>console.log(a(79));</code></pre>
+
+            <li>After testing, publish it</li>
+            <pre><code>npm publish</code></pre>
+        </ol>
+    </div>
+
+</body>
+</html>
