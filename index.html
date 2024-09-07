@@ -5,64 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anubhav npm Page</title>
     <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f39c12;
+            --text-color: #333;
+            --bg-color: #f5f7fa;
+            --card-bg: #ffffff;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            background: linear-gradient(135deg, var(--bg-color), #c3cfe2);
             margin: 0;
-            padding: 0;
+            padding: 20px;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
 
         .container {
-            background-color: #ffffff;
+            background-color: var(--card-bg);
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             padding: 30px;
             width: 90%;
-            max-width: 700px;
+            max-width: 800px;
             text-align: center;
             border: 1px solid #e1e1e1;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
         h1 {
-            color: #333;
+            color: var(--primary-color);
             margin-bottom: 20px;
-            font-size: 2.2em;
+            font-size: 2.5em;
             font-weight: 700;
         }
 
         p {
-            color: #555;
+            color: var(--text-color);
             margin-bottom: 20px;
             line-height: 1.6;
+            font-size: 1.1em;
         }
 
         ol {
             text-align: left;
-            display: inline-block;
+            padding-left: 20px;
             font-size: 1.1em;
-            color: #333;
+            color: var(--text-color);
         }
 
         li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         code {
-            background-color: #f7f7f7;
+            background-color: #f0f4f8;
             padding: 4px 8px;
             border-radius: 5px;
             font-family: 'Courier New', Courier, monospace;
-            color: #d63d53;
+            color: var(--secondary-color);
+            font-weight: bold;
         }
 
         pre {
@@ -74,60 +84,117 @@
             text-align: left;
             font-size: 0.95em;
             line-height: 1.5;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
 
         pre code {
             display: block;
             white-space: pre-wrap;
+            color: inherit;
+            background-color: transparent;
+            padding: 0;
         }
 
         .button {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
             color: #fff;
-            background-color: #007bff;
+            background-color: var(--primary-color);
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             cursor: pointer;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
         }
 
         .button:hover {
-            background-color: #0056b3;
+            background-color: #3476c5;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            ol {
+                padding-left: 10px;
+            }
+
+            pre {
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            p, ol {
+                font-size: 1em;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Anubhav npm Package Page</h1>
-        <p>This is a simple HTML page containing info about npm packages.</p>
+        <h1>Anubhav npm Package Guide</h1>
+        <p>Welcome to this comprehensive guide on creating and publishing your own npm package. Follow these steps to get started:</p>
         <ol>
-            <li><code>npm init</code> - Add all your code. <code>index.js</code> file will contain the code.</li>
-
-            <pre>
-    // Function to check if a number is prime
-    function isPrime(number) {
-       return true;
+            <li>
+                <strong>Initialize your package:</strong>
+                <code>npm init</code>
+                <p>Add your code to the <code>index.js</code> file. Here's an example of a simple prime number checker:</p>
+                <pre><code>// Function to check if a number is prime
+function isPrime(number) {
+    if (number <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+        if (number % i === 0) return false;
     }
-    // Export the isPrime function
-    module.exports = isPrime;
-            </pre>
+    return true;
+}
 
-            <li><code>npm link</code> - When the package is created, it will create a local link to install those npm files from the local.</li>
-
-            <li>Test the code: <code>npm i package-name(check-if-prime)</code> as specified in the package.json file</li>
-
-            <pre><code>const a = require('check-if-prime');</code></pre>
-            <pre><code>console.log(a(79));</code></pre>
-
-            <li>After testing, publish it</li>
-            <pre><code>npm publish</code></pre>
+// Export the isPrime function
+module.exports = isPrime;</code></pre>
+            </li>
+            <li>
+                <strong>Create a local link:</strong>
+                <code>npm link</code>
+                <p>This creates a local link to install your npm files from your local machine.</p>
+            </li>
+            <li>
+                <strong>Test your package:</strong>
+                <p>Install your package locally:</p>
+                <code>npm i package-name</code>
+                <p>Use it in your test file:</p>
+                <pre><code>const isPrime = require('check-if-prime');
+console.log(isPrime(79));</code></pre>
+            </li>
+            <li>
+                <strong>Publish your package:</strong>
+                <code>npm publish</code>
+                <p>Make sure you're logged in to npm and have a unique package name before publishing.</p>
+            </li>
         </ol>
+        <a href="#" class="button">Learn More</a>
     </div>
-
 </body>
 </html>
